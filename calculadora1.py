@@ -1,0 +1,56 @@
+from tkinter import *
+
+root = Tk()
+root.title("Calculadora")
+
+frame = Frame(root)
+frame.grid(column=0, row=0)
+
+def result():
+    try:
+        result = eval(e.get())
+        e.delete(0, END)
+        e.insert(0, result)
+    except:
+        e.delete(0, END)
+        e.insert(0, "Error")
+
+e = Entry(frame, width=40)
+e.grid(column=0, row=0, columnspan=4, sticky="ew")
+
+btn7 = Button(frame, text="7", command=lambda: e.insert(END, "7"))
+btn7.grid(column=0, row=1, sticky="ew")
+btn8 = Button(frame, text="8", command=lambda: e.insert(END, "8"))
+btn8.grid(column=1, row=1, sticky="ew")
+btn9 = Button(frame, text="9", command=lambda: e.insert(END, "9"))
+btn9.grid(column=2, row=1, sticky="ew")
+btnsuma = Button(frame, text="+", command=lambda: e.insert(END, "+"), background="orange")
+btnsuma.grid(column=3, row=1, sticky="ew")
+btn4 = Button(frame, text="4", command=lambda: e.insert(END, "4"))
+btn4.grid(column=0, row=2, sticky="ew")
+btn5 = Button(frame, text="5", command=lambda: e.insert(END, "5"))
+btn5.grid(column=1, row=2, sticky="ew")
+btn6 = Button(frame, text="6", command=lambda: e.insert(END, "6"))
+btn6.grid(column=2, row=2, sticky="ew")
+btnresta = Button(frame, text="-", command=lambda: e.insert(END, "-"), background="orange")
+btnresta.grid(column=3, row=2, sticky="ew")
+btn1 = Button(frame, text="1", command=lambda: e.insert(END, "1"))
+btn1.grid(column=0, row=3, sticky="ew")
+btn2 = Button(frame, text="2", command=lambda: e.insert(END, "2"))
+btn2.grid(column=1, row=3, sticky="ew")
+btn3 = Button(frame, text="3", command=lambda: e.insert(END, "3"))
+btn3.grid(column=2, row=3, sticky="ew")
+btnmult = Button(frame, text="*", command=lambda: e.insert(END, "*"), background="orange")
+btnmult.grid(column=3, row=3, sticky="ew")
+btn0 = Button(frame, text="0", command=lambda: e.insert(END, "0"))
+btn0.grid(column=0, row=4, columnspan=2, sticky="ew")
+btnpunto = Button(frame, text=".", command=lambda: e.insert(END, "."))
+btnpunto.grid(column=2, row=4, sticky="ew")
+btndiv = Button(frame, text="/", command=lambda: e.insert(END, "/"), background="orange")
+btndiv.grid(column=3, row=4, sticky="ew")
+btnclear = Button(frame, text="C", command=lambda: e.delete(0, END))
+btnclear.grid(column=2, row=5, sticky="ew")
+btnequal = Button(frame, text="=", command=result, background="orange")
+btnequal.grid(column=3, row=5, sticky="ew")
+
+root.mainloop()
